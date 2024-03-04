@@ -1,7 +1,7 @@
 const startBtn = document.querySelector('#start');
 const screen = document.querySelectorAll('.screen')
 const timeList = document.querySelector('#time-list')
-let time = 20
+let time = 0
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
 let score = 0
@@ -29,10 +29,6 @@ board.addEventListener('click', event =>{
 
 })
 
-
-//debug
-startGame()
-
 function startGame(){
     setInterval(decreaseTime, 1000)
     createRandomCircle()
@@ -58,6 +54,8 @@ function setTime(value){
 }
 
 function finishGame() {
+    timeEl.parentNode.remove()
+    board.innerHTML =  `<h1>Cчет: ${score}</h1>`
 
 }
 
